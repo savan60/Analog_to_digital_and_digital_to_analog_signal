@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+from IPython.display import HTML
 
 def tobinary(data,level):
     x=bin(data).replace("0b","")
