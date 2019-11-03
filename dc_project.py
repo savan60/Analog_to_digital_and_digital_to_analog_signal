@@ -53,7 +53,7 @@ class DC_Project(tk.Tk):
 
         self.frames={}
 
-        for F in (StartPage,PageOne,PageTwo,PageThree):
+        for F in (StartPage,PageOne,PageTwo):
             frame=F(container,self)
 
             self.frames[F]=frame
@@ -279,7 +279,6 @@ class PageOne(tk.Frame):
         self.controller=controller
         tk.Frame.__init__(self,parent)
 
-        k="savan"
         label=tk.Label(self,text="Signals",font=LARGE_FONT)
         label.pack(pady=10,padx=10)
 
@@ -312,29 +311,7 @@ class PageOne(tk.Frame):
         self.toolbar=NavigationToolbar2Tk(self.canvas,self)
         self.toolbar.update()
         self.canvas._tkcanvas.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
-            
-        
-
-class PageThree(tk.Frame):
-    def __init__(self,parent,controller):
-        self.controller=controller
-        tk.Frame.__init__(self,parent)
-        self.label=tk.Label(self,font=LARGE_FONT)
-        self.label.pack(pady=10,padx=10)
-        button1=ttk.Button(self,text="Back to Home",
-                          command=lambda: controller.show_frame(StartPage))
-        button1.pack()
-    
-
-        button2=ttk.Button(self,text="To page 1",
-                          command=lambda: controller.show_frame(PageOne))
-        button2.pack()
-        
-        
-
-    def correct_label(self):
-        self.label.config(text=self.controller.SomeVar)
-        
+                    
 
 app=DC_Project()
 app.mainloop()
